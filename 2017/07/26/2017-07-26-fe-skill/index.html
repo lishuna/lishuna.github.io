@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="关于前端技术 | 会飞的鱼儿，Front-End，个人博客">
+    <meta name="keyword" content="关于前端技术 | 会飞的鱼儿，Front-End，个人博客">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="freefish" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        git常用命令整理｜freefish&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://lishuna.github.io/2017/07/26/2017-07-26-fe-skill/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    freefish
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tools/">tools</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src="/img/post-bg-js-module.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-bg-js-module.jpg');
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>git常用命令整理</h1>
+                    
+                    <h2 class="subheading">代码提交工具使用</h2>
+                    
+                    <span class="meta">
+                         作者 freefish
+                        <span>
+                          日期 2017-07-26
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#git"
+                           title="git">git</a>
+                        
+                        <a class="tag" href="/tags/#前端必备技能"
+                           title="前端必备技能">前端必备技能</a>
+                        
+                        <a class="tag" href="/tags/#常用命令"
+                           title="常用命令">常用命令</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            git常用命令整理
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>git用了这么久，还是有很多命令记不住，索性写个文档记录下来，以备后用。</p>
+<ul>
+<li><a href="#ready">准备工作</a><ul>
+<li><a href="#init">安装git</a></li>
+<li><a href="#ssk-key">创建ssh-key</a></li>
+<li><a href="#create">创建版本库</a></li>
+</ul>
+</li>
+<li><a href="#reset">时光穿梭</a><ul>
+<li><a href="#goback">版本回退</a></li>
+<li></li>
+<li><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a><a id="ready">准备工作</a></h3><h4 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.<a id="init">安装git</a></h4></li>
+</ul>
+</li>
+</ul>
+<p>mac下，默认已经装了brew，如果没装请自行百度。<br>用brew安装git<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure></p>
+<p>安装完全局设置:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure></p>
+<p>因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址。你也许会担心，如果有人故意冒充别人怎么办？这个不必担心，首先我们相信大家都是善良无知的群众，其次，真的有冒充的也是有办法可查的。</p>
+<p><strong>注意git config命令的–global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。</strong></p>
+<h4 id="2-生成ssh-key"><a href="#2-生成ssh-key" class="headerlink" title="2. 生成ssh-key:"></a>2. <a id="ssk-key">生成ssh-key:</a></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;zhangsan@163.com&quot;</span><br></pre></td></tr></table></figure>
+<p>首先-t是指定算法 -C是创建用户.创建的ssh-key默认存储在~/.ssh/id_rsa.pub里，如果你有多个git账户，那么可以重命名一个存储文件，然后在~/.ssh/config创建一个config文件，进行如下配置：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 该文件用于配置私钥对应的服务器</span><br><span class="line">#  Default github user</span><br><span class="line"> Host git.xxx.com</span><br><span class="line"> HostName git.xxx.com</span><br><span class="line"> User freefish</span><br><span class="line"> IdentityFile /Users/xxx/.ssh/id_rsa_jdb</span><br><span class="line">#</span><br><span class="line"># second user</span><br><span class="line"># 建一个github别名，新建的帐号使用这个别名做克隆和更新</span><br><span class="line"> Host github.com</span><br><span class="line"> HostName github.com</span><br><span class="line"> User freefish_github</span><br><span class="line"> IdentityFile /Users/xxx/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-创建版本库"><a href="#3-创建版本库" class="headerlink" title="3. 创建版本库"></a>3. <a id="create">创建版本库</a></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>创建完以后需要本地和远程库关联。需要在github上同样创建一个库，然后使用下面命令进行关联:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote add origin git地址(类似：git@github.com:lishuna/gulp-study.git)</span><br></pre></td></tr></table></figure></p>
+<h3 id="时光穿梭"><a href="#时光穿梭" class="headerlink" title="时光穿梭"></a><a id="reset">时光穿梭</a></h3><h4 id="1-版本回退"><a href="#1-版本回退" class="headerlink" title="1. 版本回退"></a>1. <a id="goBack">版本回退</a></h4><p>版本回退实际利用git log命令，获取到要回退版本提交的commit id，然后利用git reset命令进行回退。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">commit 902534cc52238df49513aa2d515b4a4982b79658</span><br><span class="line">Author: lishuna &lt;lisna@jiedaibao.com&gt;</span><br><span class="line">Date:   Wed Jul 26 11:49:15 2017 +0800</span><br><span class="line"></span><br><span class="line">    update</span><br><span class="line"></span><br><span class="line">commit db7e46f8b7d70cbd573f8a137317955ea4492e23</span><br><span class="line">Author: lishuna &lt;lisna@jiedaibao.com&gt;</span><br><span class="line">Date:   Wed Jul 26 11:46:16 2017 +0800</span><br><span class="line"></span><br><span class="line">    update</span><br><span class="line"></span><br><span class="line">commit 090783d429cf9cbeac988ca275ea93037a7c6ad9</span><br><span class="line">Author: lishuna &lt;lisna@jiedaibao.com&gt;</span><br><span class="line">Date:   Wed Jul 26 11:33:18 2017 +0800</span><br><span class="line"></span><br><span class="line">    update</span><br></pre></td></tr></table></figure></p>
+<p>回退commit ID是 902534cc52238df49513aa2d515b4a4982b79658<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset --hard 902534cc52238df49513aa2d515b4a4982b79658</span><br></pre></td></tr></table></figure></p>
+<p>在查看log的时候感觉显示乱，可以用<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log --pretty=oneline</span><br></pre></td></tr></table></figure></p>
+<p>得到结果如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">19b5cc37d1f8727af8c81518d14647c2f97b63e3 修改配置</span><br><span class="line">dee4fc1047aea5281b4e377326e0fb3f4b59a377 update</span><br><span class="line">f0b78c474551fb884e0fcc678797f1960a3ff0ec 博客搭建</span><br><span class="line">863b9f84888f4a0d57760cf7ad1ffa54319243c2 博客搭建</span><br></pre></td></tr></table></figure></p>
+<p>如果不想获取commitID，还可以通过HEAD关键字来回滚。HEAD表示最新版本，HEAD^表示上一个版本，HEAD^^表示上上个版本，如果想回退上100个版本，实在是不好数，可以用HEAD~100。真心表示这个东西很实用，一不小心把代码提交错了想会滚，就派上用场了。<br><em>注意，git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。</em><br>比如我想回退一个已经提交到暂存区的文件：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset HEAD file</span><br></pre></td></tr></table></figure></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/12/01/2017-12-01-mac-tools/" data-toggle="tooltip" data-placement="top"
+                           title="mac常用工具整理">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/07/25/2017-07-25-js-ng2/" data-toggle="tooltip" data-placement="top"
+                           title="关于ng2的一些学习资源">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-安装git"><span class="toc-text">1.安装git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-生成ssh-key"><span class="toc-text">2. 生成ssh-key:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-创建版本库"><span class="toc-text">3. 创建版本库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时光穿梭"><span class="toc-text">时光穿梭</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-版本回退"><span class="toc-text">1. 版本回退</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#git"
+                           title="git">git</a>
+                        
+                        <a class="tag" href="/tags/#前端必备技能"
+                           title="前端必备技能">前端必备技能</a>
+                        
+                        <a class="tag" href="/tags/#常用命令"
+                           title="常用命令">常用命令</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://www.css3.io/">lijun</a></li>
+                        
+                        <li><a href="http://freefish1212.cn/">freefish</a></li>
+                        
+                        <li><a href="#">Example Friends</a></li>
+                        
+                        <li><a href="#">It helps SEO</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/lin-nuo-48-74">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/1847298293">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/lishuna">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; freefish 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://lishuna.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '767289567b5b2efe3a61a62b2b0f333d';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/img/author.jpg">
+</body>
+
+</html>

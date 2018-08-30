@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="关于前端技术 | 会飞的鱼儿，Front-End，个人博客">
+    <meta name="keyword" content="关于前端技术 | 会飞的鱼儿，Front-End，个人博客">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="freefish" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        tags｜freefish&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://lishuna.github.io/tags/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    freefish
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tools/">tools</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+<style>
+    .intro-header .site-heading {
+        margin: 50px;
+    }
+    
+    header.intro-header {
+        background-image: url('/img/post-bg-2015.jpg');
+    }
+
+    
+</style>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading text-center">
+                    <h1>tags</h1>
+                    <span class="subheading">会飞的鱼儿个人博客</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- 标签云 -->
+            <div id='tag_cloud' class="tags">
+                
+                <a href="#OS" title="OS" rel="1">OS</a>
+                
+                <a href="#Unix" title="Unix" rel="1">Unix</a>
+                
+                <a href="#Linux" title="Linux" rel="2">Linux</a>
+                
+                <a href="#ng2" title="ng2" rel="1">ng2</a>
+                
+                <a href="#JavaScript" title="JavaScript" rel="1">JavaScript</a>
+                
+                <a href="#学习资料" title="学习资料" rel="1">学习资料</a>
+                
+                <a href="#git" title="git" rel="1">git</a>
+                
+                <a href="#前端必备技能" title="前端必备技能" rel="2">前端必备技能</a>
+                
+                <a href="#常用命令" title="常用命令" rel="1">常用命令</a>
+                
+                <a href="#mac" title="mac" rel="1">mac</a>
+                
+                <a href="#常用工具" title="常用工具" rel="1">常用工具</a>
+                
+                <a href="#js" title="js" rel="2">js</a>
+                
+                <a href="#app" title="app" rel="1">app</a>
+                
+                <a href="#ElementRef" title="ElementRef" rel="1">ElementRef</a>
+                
+                <a href="#angular" title="angular" rel="1">angular</a>
+                
+                <a href="#js基础" title="js基础" rel="1">js基础</a>
+                
+                <a href="#事件处理" title="事件处理" rel="1">事件处理</a>
+                
+                <a href="#javascript" title="javascript" rel="5">javascript</a>
+                
+                <a href="#es5" title="es5" rel="1">es5</a>
+                
+                <a href="#es6" title="es6" rel="2">es6</a>
+                
+                <a href="#es2015" title="es2015" rel="1">es2015</a>
+                
+                <a href="#angular2" title="angular2" rel="1">angular2</a>
+                
+                <a href="#rxjs" title="rxjs" rel="3">rxjs</a>
+                
+                <a href="#css" title="css" rel="1">css</a>
+                
+                <a href="#box-sizing" title="box-sizing" rel="1">box-sizing</a>
+                
+                <a href="#node" title="node" rel="2">node</a>
+                
+                <a href="#mongodb" title="mongodb" rel="1">mongodb</a>
+                
+                <a href="#babel" title="babel" rel="1">babel</a>
+                
+                <a href="#高清屏" title="高清屏" rel="1">高清屏</a>
+                
+                <a href="#适配" title="适配" rel="1">适配</a>
+                
+                <a href="#devicePixelRatio" title="devicePixelRatio" rel="1">devicePixelRatio</a>
+                
+                <a href="#rem" title="rem" rel="1">rem</a>
+                
+            </div>
+
+            <!-- 标签列表 -->
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="OS">
+                    <span class="tag-text">OS</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/20/2017-07-20-unix-linux-note/">
+                        <h2 class="post-title">
+                            Bash 常用命令
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            命令搞起来
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Unix">
+                    <span class="tag-text">Unix</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/20/2017-07-20-unix-linux-note/">
+                        <h2 class="post-title">
+                            Bash 常用命令
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            命令搞起来
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Linux">
+                    <span class="tag-text">Linux</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/20/2017-07-20-unix-linux-note/">
+                        <h2 class="post-title">
+                            Bash 常用命令
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            命令搞起来
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/20/2018-01-23-js-ionic/">
+                        <h2 class="post-title">
+                            ionic踩过的那些坑
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            ionic app
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="ng2">
+                    <span class="tag-text">ng2</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/25/2017-07-25-js-ng2/">
+                        <h2 class="post-title">
+                            关于ng2的一些学习资源
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            ng2
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="JavaScript">
+                    <span class="tag-text">JavaScript</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/25/2017-07-25-js-ng2/">
+                        <h2 class="post-title">
+                            关于ng2的一些学习资源
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            ng2
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="学习资料">
+                    <span class="tag-text">学习资料</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/25/2017-07-25-js-ng2/">
+                        <h2 class="post-title">
+                            关于ng2的一些学习资源
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            ng2
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="git">
+                    <span class="tag-text">git</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/26/2017-07-26-fe-skill/">
+                        <h2 class="post-title">
+                            git常用命令整理
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            代码提交工具使用
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="前端必备技能">
+                    <span class="tag-text">前端必备技能</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/26/2017-07-26-fe-skill/">
+                        <h2 class="post-title">
+                            git常用命令整理
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            代码提交工具使用
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/2018/03/08/2018-03-08-js-base/">
+                        <h2 class="post-title">
+                            解决文本框的中文输入法问题处理
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            js事件
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="常用命令">
+                    <span class="tag-text">常用命令</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/26/2017-07-26-fe-skill/">
+                        <h2 class="post-title">
+                            git常用命令整理
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            代码提交工具使用
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="mac">
+                    <span class="tag-text">mac</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/12/01/2017-12-01-mac-tools/">
+                        <h2 class="post-title">
+                            mac常用工具整理
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            mac常用工具整理
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="常用工具">
+                    <span class="tag-text">常用工具</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/12/01/2017-12-01-mac-tools/">
+                        <h2 class="post-title">
+                            mac常用工具整理
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            mac常用工具整理
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="js">
+                    <span class="tag-text">js</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/20/2018-01-23-js-ionic/">
+                        <h2 class="post-title">
+                            ionic踩过的那些坑
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            ionic app
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/2018/02/02/2018-02-02-js-angular/">
+                        <h2 class="post-title">
+                            Angular-ElementRef学习
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            Angular
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="app">
+                    <span class="tag-text">app</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2017/07/20/2018-01-23-js-ionic/">
+                        <h2 class="post-title">
+                            ionic踩过的那些坑
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            ionic app
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="ElementRef">
+                    <span class="tag-text">ElementRef</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/02/02/2018-02-02-js-angular/">
+                        <h2 class="post-title">
+                            Angular-ElementRef学习
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            Angular
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="angular">
+                    <span class="tag-text">angular</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/02/02/2018-02-02-js-angular/">
+                        <h2 class="post-title">
+                            Angular-ElementRef学习
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            Angular
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="js基础">
+                    <span class="tag-text">js基础</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/03/08/2018-03-08-js-base/">
+                        <h2 class="post-title">
+                            解决文本框的中文输入法问题处理
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            js事件
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="事件处理">
+                    <span class="tag-text">事件处理</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/03/08/2018-03-08-js-base/">
+                        <h2 class="post-title">
+                            解决文本框的中文输入法问题处理
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            js事件
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="javascript">
+                    <span class="tag-text">javascript</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/03/13/2018-03-12-js-base-md/">
+                        <h2 class="post-title">
+                            javascript版本命名的由来
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/2018/05/01/2018-05-01-js-angular2/">
+                        <h2 class="post-title">
+                            有意思的pipe对于DecimalPipe小数位保留
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/2018/07/01/2018-07-01-js-rxjs/">
+                        <h2 class="post-title">
+                            rxjs初试
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/2018/07/24/2018-07-24-js-rxjs/">
+                        <h2 class="post-title">
+                            rxjs操作符总结
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/2018/07/25/2018-07-25-js-rxjs/">
+                        <h2 class="post-title">
+                            RxJS--详解forkJoin, zip, combineLatest之间的区别
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="es5">
+                    <span class="tag-text">es5</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/03/13/2018-03-12-js-base-md/">
+                        <h2 class="post-title">
+                            javascript版本命名的由来
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="es6">
+                    <span class="tag-text">es6</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/03/13/2018-03-12-js-base-md/">
+                        <h2 class="post-title">
+                            javascript版本命名的由来
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/2018/08/27/2018-08-27-js-babel-node-md/">
+                        <h2 class="post-title">
+                            如何让node完美支持es6语法
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            node es6 babel
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="es2015">
+                    <span class="tag-text">es2015</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/03/13/2018-03-12-js-base-md/">
+                        <h2 class="post-title">
+                            javascript版本命名的由来
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="angular2">
+                    <span class="tag-text">angular2</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/05/01/2018-05-01-js-angular2/">
+                        <h2 class="post-title">
+                            有意思的pipe对于DecimalPipe小数位保留
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="rxjs">
+                    <span class="tag-text">rxjs</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/07/01/2018-07-01-js-rxjs/">
+                        <h2 class="post-title">
+                            rxjs初试
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/2018/07/24/2018-07-24-js-rxjs/">
+                        <h2 class="post-title">
+                            rxjs操作符总结
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/2018/07/25/2018-07-25-js-rxjs/">
+                        <h2 class="post-title">
+                            RxJS--详解forkJoin, zip, combineLatest之间的区别
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="css">
+                    <span class="tag-text">css</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/07/02/2018-07-02-css-box-sizing/">
+                        <h2 class="post-title">
+                            box-sizing使用
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="box-sizing">
+                    <span class="tag-text">box-sizing</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/07/02/2018-07-02-css-box-sizing/">
+                        <h2 class="post-title">
+                            box-sizing使用
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="node">
+                    <span class="tag-text">node</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/07/03/2018-07-03-node-mongodb/">
+                        <h2 class="post-title">
+                            mongodb入门
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/2018/08/27/2018-08-27-js-babel-node-md/">
+                        <h2 class="post-title">
+                            如何让node完美支持es6语法
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            node es6 babel
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="mongodb">
+                    <span class="tag-text">mongodb</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/07/03/2018-07-03-node-mongodb/">
+                        <h2 class="post-title">
+                            mongodb入门
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="babel">
+                    <span class="tag-text">babel</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/08/27/2018-08-27-js-babel-node-md/">
+                        <h2 class="post-title">
+                            如何让node完美支持es6语法
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            node es6 babel
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="高清屏">
+                    <span class="tag-text">高清屏</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/08/28/2018-08-28-css-devicePixelRatio/">
+                        <h2 class="post-title">
+                            高清屏及适配不同设备的方案总结
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="适配">
+                    <span class="tag-text">适配</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/08/28/2018-08-28-css-devicePixelRatio/">
+                        <h2 class="post-title">
+                            高清屏及适配不同设备的方案总结
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="devicePixelRatio">
+                    <span class="tag-text">devicePixelRatio</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/08/28/2018-08-28-css-devicePixelRatio/">
+                        <h2 class="post-title">
+                            高清屏及适配不同设备的方案总结
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="rem">
+                    <span class="tag-text">rem</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/2018/08/28/2018-08-28-css-devicePixelRatio/">
+                        <h2 class="post-title">
+                            高清屏及适配不同设备的方案总结
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/lin-nuo-48-74">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/1847298293">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/lishuna">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; freefish 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://lishuna.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '767289567b5b2efe3a61a62b2b0f333d';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/img/author.jpg">
+</body>
+
+</html>

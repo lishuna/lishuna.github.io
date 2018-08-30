@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="关于前端技术 | 会飞的鱼儿，Front-End，个人博客">
+    <meta name="keyword" content="关于前端技术 | 会飞的鱼儿，Front-End，个人博客">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="freefish" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        关于ng2的一些学习资源｜freefish&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://lishuna.github.io/2017/07/25/2017-07-25-js-ng2/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    freefish
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tools/">tools</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src="/img/post-bg-js-version.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-bg-js-version.jpg');
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>关于ng2的一些学习资源</h1>
+                    
+                    <h2 class="subheading">ng2</h2>
+                    
+                    <span class="meta">
+                         作者 freefish
+                        <span>
+                          日期 2017-07-25
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#ng2"
+                           title="ng2">ng2</a>
+                        
+                        <a class="tag" href="/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                        <a class="tag" href="/tags/#学习资料"
+                           title="学习资料">学习资料</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            关于ng2的一些学习资源
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Angular-2"><a href="#Angular-2" class="headerlink" title="Angular 2"></a>Angular 2</h1><h2 id="一些有用的资源"><a href="#一些有用的资源" class="headerlink" title="一些有用的资源"></a>一些有用的资源</h2><ol>
+<li><a href="https://segmentfault.com/a/1190000003761054" target="_blank" rel="noopener">关于Angular2的一些资料（持续更新中）</a></li>
+<li><a href="https://www.processon.com/view/57e0f881e4b0b58eb00eaa0a" target="_blank" rel="noopener">Angular2知识点</a></li>
+<li><a href="https://github.com/kittencup/angular2-ama-cn" target="_blank" rel="noopener">angular2 随便问</a></li>
+<li><a href="https://github.com/AngularClass/awesome-angular2" target="_blank" rel="noopener">awesome-angular2</a></li>
+<li><a href="https://johnpapa.net/" target="_blank" rel="noopener">John Papa</a> - 一个”网红” =。=</li>
+<li><a href="https://vsavkin.com/@vsavkin" target="_blank" rel="noopener">Victor Savkin</a> - 不少干货，Angular 2 的很多</li>
+<li><a href="http://angularexpo.com/" target="_blank" rel="noopener">Angular Expo</a> - 很多 Angular 2 的开源项目，想写点儿东西不知道写啥，不妨来这里找找灵感</li>
+<li><a href="https://github.com/johnpapa/angular-styleguide" target="_blank" rel="noopener">John Papa Angular Style Guide</a> - 他的 Style Guide 很好。一份 Style Guide 可能不能帮助你写出漂亮的功能，但对后期维护绝对起到了至关重要的作用</li>
+<li><a href="https://www.delivoper.com/t/angular-2/32" target="_blank" rel="noopener">去哪里学Angular 2，怎么学</a></li>
+</ol>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><ol>
+<li><a href="https://www.zybuluo.com/kungfuboy/note/604539" target="_blank" rel="noopener">Angular 2教程</a></li>
+<li><a href="http://codin.im/2016/09/18/angular2-architecture-intro/" target="_blank" rel="noopener">Angular2架构浅析</a></li>
+<li><a href="http://wfsovereign.github.io/2016/06/26/angular2%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">angular2开发笔记</a></li>
+<li><a href="https://github.com/wpcfan/awesome-tutorials/tree/chap01/angular2/ng2-tut" target="_blank" rel="noopener">Angular 2.x 从0到1</a></li>
+<li><a href="http://www.jianshu.com/p/02d5d6da0766" target="_blank" rel="noopener">Angular2项目日常开发中所遇问题及解决方案记录(三)</a></li>
+<li><a href="http://www.hubwiz.com/course/5599d367a164dd0d75929c76/" target="_blank" rel="noopener">Angular2入门</a></li>
+<li><a href="https://coyee.com/article/10921-developing-an-angular-2-application-with-typescript" target="_blank" rel="noopener">使用 TypeScript 开发 Angular 2 应用</a></li>
+<li><a href="https://segmentfault.com/a/1190000008754631" target="_blank" rel="noopener">Angular 2 修仙之路 - 目录</a></li>
+</ol>
+<h2 id="书"><a href="#书" class="headerlink" title="书"></a>书</h2><ol>
+<li><a href="ng-book.com/2">ng-book2</a> - 推荐，更新及时，有例子有视频。半价优惠码（限时有效）：NgConf2016</li>
+<li><a href="https://www.gitbook.com/read/book/zhangchen915/angular2-training" target="_blank" rel="noopener">Angular2-Training-Book</a></li>
+</ol>
+<h2 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h2><ol>
+<li><a href="angular.io">英文官网</a></li>
+<li><a href="angular.cn">中文官网</a></li>
+<li><a href="https://www.youtube.com/user/ngconfvideos" target="_blank" rel="noopener">ng-conf 的 YouTube 频道</a> - Angular 2 还比较新，不少新工具、新思路都是在 ng-conf 上提出的，嘉宾们演讲都很有意思，值得一看</li>
+</ol>
+<h2 id="视频（收费）"><a href="#视频（收费）" class="headerlink" title="视频（收费）"></a>视频（收费）</h2><ol>
+<li><a href="egghead.io">egghead.io</a> - 不定期的会有免费视频，也会有限时免费的视频。如果喜欢追新技术，建议入一个一年的会员。不止是 Angular 相关的，其他视频也很不错</li>
+<li><a href="lynda.com">Lynda</a> - 不是很推荐，目前还是采用老版本的写法</li>
+<li><a href="udemy.com">Udemy</a> - 课程比较多，精品也不少。按课程付费</li>
+</ol>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ol>
+<li><a href="https://github.com/greengerong/rebirth" target="_blank" rel="noopener">rebirth</a></li>
+<li><a href="http://git.oschina.net/mumu-osc/NiceFish" target="_blank" rel="noopener">NiceFish</a></li>
+</ol>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/07/26/2017-07-26-fe-skill/" data-toggle="tooltip" data-placement="top"
+                           title="git常用命令整理">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/07/20/2018-01-23-js-ionic/" data-toggle="tooltip" data-placement="top"
+                           title="ionic踩过的那些坑">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Angular-2"><span class="toc-text">Angular 2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一些有用的资源"><span class="toc-text">一些有用的资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章"><span class="toc-text">文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#书"><span class="toc-text">书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#官方"><span class="toc-text">官方</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视频（收费）"><span class="toc-text">视频（收费）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#案例"><span class="toc-text">案例</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#ng2"
+                           title="ng2">ng2</a>
+                        
+                        <a class="tag" href="/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                        <a class="tag" href="/tags/#学习资料"
+                           title="学习资料">学习资料</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://www.css3.io/">lijun</a></li>
+                        
+                        <li><a href="http://freefish1212.cn/">freefish</a></li>
+                        
+                        <li><a href="#">Example Friends</a></li>
+                        
+                        <li><a href="#">It helps SEO</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/lin-nuo-48-74">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/1847298293">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/lishuna">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; freefish 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://lishuna.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '767289567b5b2efe3a61a62b2b0f333d';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/img/author.jpg">
+</body>
+
+</html>

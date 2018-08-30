@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="关于前端技术 | 会飞的鱼儿，Front-End，个人博客">
+    <meta name="keyword" content="关于前端技术 | 会飞的鱼儿，Front-End，个人博客">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="freefish" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        高清屏及适配不同设备的方案总结｜freefish&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://lishuna.github.io/2018/08/28/2018-08-28-css-devicePixelRatio/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    freefish
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tools/">tools</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img" src="/img/post-bg-2015.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-bg-2015.jpg');
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>高清屏及适配不同设备的方案总结</h1>
+                    
+                    <span class="meta">
+                         作者 freefish
+                        <span>
+                          日期 2018-08-28
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#高清屏"
+                           title="高清屏">高清屏</a>
+                        
+                        <a class="tag" href="/tags/#适配"
+                           title="适配">适配</a>
+                        
+                        <a class="tag" href="/tags/#devicePixelRatio"
+                           title="devicePixelRatio">devicePixelRatio</a>
+                        
+                        <a class="tag" href="/tags/#rem"
+                           title="rem">rem</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            高清屏及适配不同设备的方案总结
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>关于一些Retina，设备像素，移动适配的知识，网上一搜也是一大把，但是基本的东西并没有变化太多。下面就我看过的一些有关于这方面的知识做一些总结（仅以个人的角度出发，所以有不全的地方还请大家谅解）。后面会有不定期的更新~每个知识点我都会在开关写出引用地址，所以大家有不懂的可以看原文章~</p>
+</blockquote>
+<h1 id="一、关于设备像素比（devicePixelRatio）"><a href="#一、关于设备像素比（devicePixelRatio）" class="headerlink" title="一、关于设备像素比（devicePixelRatio）"></a>一、关于设备像素比（devicePixelRatio）</h1><p>出处：<a href="https://blog.csdn.net/yisuowushinian/article/details/52738759" target="_blank" rel="noopener">高清屏概念解析与检测设备像素比的方法</a></p>
+<p>所谓设备像素比（devicePixelRatio[dpr]）指的就是物理像素(physical pixel)和独立像素(device-independent pixels [dips])的比例。</p>
+<p>基本公式就是:设备像素比 = 物理像素 / 设备独立像素  //在某个方向上，x或者y</p>
+<p>物理像素：就是我们经常所说的分辨率，如iphone 6 的分辨率就是750x1334</p>
+<p>独立像素：就是手机的实际视窗，如iphone 6的视窗就是375x667</p>
+<p>所以iphone 6的设备像素比 = 750/375 = 2</p>
+<p>当devicePixelRatio值等于1时（也就是最小值），那么它普通显示屏</p>
+<p>当devicePixelRatio值大于1(通常是1.5、2.0)，那么它就是高清显示屏。</p>
+<h2 id="二：适配方案"><a href="#二：适配方案" class="headerlink" title="二：适配方案"></a>二：适配方案</h2><p>出处：<a href="https://blog.csdn.net/yisuowushinian/article/details/52738759" target="_blank" rel="noopener">高清屏概念解析与检测设备像素比的方法</a></p>
+<h3 id="1-Media-Queries媒体查询（只能用于背景图片）"><a href="#1-Media-Queries媒体查询（只能用于背景图片）" class="headerlink" title="1.Media Queries媒体查询（只能用于背景图片）"></a>1.Media Queries媒体查询（只能用于背景图片）</h3><p>通过-webkit-device-pixel-ratio，-webkit-min-device-pixel-ratio和 -webkit-max-device-pixel-ratio进行媒体查询，对不同dpr的设备，做一些样式适配.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.css&#123;/* 普通显示屏(设备像素比例小于等于1.3)使用1倍的图 */ </span><br><span class="line">    background-image: url(img_1x.png);</span><br><span class="line">&#125;</span><br><span class="line">@media only screen and (-webkit-min-device-pixel-ratio:1.5)&#123;</span><br><span class="line">.css&#123;/* 高清显示屏(设备像素比例大于等于1.5)使用2倍图  */</span><br><span class="line">    background-image: url(img_2x.png);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-JavaScript的解决方案"><a href="#2-JavaScript的解决方案" class="headerlink" title="2.JavaScript的解决方案"></a>2.JavaScript的解决方案</h3><p>使用js对“window.devicePixelRatio”进行判断，然后根据对应的值给Retina屏幕选择图像。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  if (window.devicePixelRatio &gt; 1) &#123;</span><br><span class="line">    var lowresImages = $(&apos;img&apos;);</span><br><span class="line"></span><br><span class="line">    images.each(function(i) &#123;</span><br><span class="line">      var lowres = $(this).attr(&apos;src&apos;);</span><br><span class="line">      var highres = lowres.replace(&quot;.&quot;, &quot;@2x.&quot;);</span><br><span class="line">      $(this).attr(&apos;src&apos;, highres);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="3-使用SVG矢量图像"><a href="#3-使用SVG矢量图像" class="headerlink" title="3.使用SVG矢量图像"></a>3.使用SVG矢量图像</h3><h2 id="三：多屏适配布局问题"><a href="#三：多屏适配布局问题" class="headerlink" title="三：多屏适配布局问题"></a>三：多屏适配布局问题</h2><p>出处：<a href="http://www.html-js.com/article/Mobile-terminal-H5-mobile-terminal-HD-multi-screen-adaptation-scheme%203041" target="_blank" rel="noopener">【原创】移动端高清、多屏适配方案</a></p>
+<p><a href="https://blog.csdn.net/yisuowushinian/article/details/52744508" target="_blank" rel="noopener">再谈移动端适配和点5像素的由来</a></p>
+<p>==使用相对单位：rem==</p>
+<p>原理：针对不同手机屏幕尺寸和dpr动态的改变根节点html的font-size大小(基准值)。</p>
+<p>任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合:<br>==1rem=16px。那么12px=0.75rem,10px=0.625rem==。为了简化font-size的换算，需要在css中的==html选择器中声明font-size=62.5%，这就使rem值变为 16px*62.5%=10px, 这样12px=1.2rem, 10px=1rem, 也就是说只需要将原来的px数值除以10，然后换上rem作为单位就行了==。</p>
+<p>当我们在根节点html上设置了font-size基准值以后，==在文档中有使用rem单位的属性值都是相对于根节点font-size的一个相对值==。比如说一些元素的属性如width,height,margin等。也正是这个原因，现在很多网站的移动端网站都在使用rem单位作为适配工具。</p>
+<p>==注意事项==：</p>
+<p>1.整体的布局还是使用百分比</p>
+<p>2.使用rem的最佳场景是,遇到例如多列带有图片的列表,常常需要图片固定宽高比</p>
+<p>3.研究了一些网站，比如淘宝，对字体字体一般情况建议使用px</p>
+<p>4.出现1px像素线的地方，仍旧使用border-width:1px;而不是border-width:.1rem</p>
+<p>根据JS来动态计算rem值：根据iPhone6设计稿动态计算rem值</p>
+<p>==使用的时候，请将下面的代码放到页面的顶部（head标签内）；==</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * [以iPhone6的设计稿为例js动态设置文档 rem 值]</span><br><span class="line"> * @param  &#123;[type]&#125; currClientWidth [当前客户端的宽度]</span><br><span class="line"> * @param  &#123;[type]&#125; fontValue [计算后的 fontvalue值]</span><br><span class="line"> * @return &#123;[type]&#125;     [description]</span><br><span class="line"> */</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var currClientWidth, fontValue,originWidth;</span><br><span class="line">    //originWidth用来设置设计稿原型的屏幕宽度（这里是以 Iphone 6为原型的设计稿）</span><br><span class="line">    originWidth=375;</span><br><span class="line">    __resize();</span><br><span class="line"></span><br><span class="line">    //注册 resize事件</span><br><span class="line">    window.addEventListener(&apos;resize&apos;, __resize, false);</span><br><span class="line"></span><br><span class="line">    function __resize() &#123;</span><br><span class="line">        currClientWidth = document.documentElement.clientWidth;</span><br><span class="line">        //这里是设置屏幕的最大和最小值时候给一个默认值</span><br><span class="line">        if (currClientWidth &gt; 640) currClientWidth = 640;</span><br><span class="line">        if (currClientWidth &lt; 320) currClientWidth = 320;</span><br><span class="line">        //</span><br><span class="line">        fontValue = ((62.5 * currClientWidth) /originWidth).toFixed(2);</span><br><span class="line">        document.documentElement.style.fontSize = fontValue + &apos;%&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/08/27/2018-08-27-js-babel-node-md/" data-toggle="tooltip" data-placement="top"
+                           title="如何让node完美支持es6语法">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、关于设备像素比（devicePixelRatio）"><span class="toc-text">一、关于设备像素比（devicePixelRatio）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二：适配方案"><span class="toc-text">二：适配方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Media-Queries媒体查询（只能用于背景图片）"><span class="toc-text">1.Media Queries媒体查询（只能用于背景图片）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-JavaScript的解决方案"><span class="toc-text">2.JavaScript的解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-使用SVG矢量图像"><span class="toc-text">3.使用SVG矢量图像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三：多屏适配布局问题"><span class="toc-text">三：多屏适配布局问题</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#高清屏"
+                           title="高清屏">高清屏</a>
+                        
+                        <a class="tag" href="/tags/#适配"
+                           title="适配">适配</a>
+                        
+                        <a class="tag" href="/tags/#devicePixelRatio"
+                           title="devicePixelRatio">devicePixelRatio</a>
+                        
+                        <a class="tag" href="/tags/#rem"
+                           title="rem">rem</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://www.css3.io/">lijun</a></li>
+                        
+                        <li><a href="http://freefish1212.cn/">freefish</a></li>
+                        
+                        <li><a href="#">Example Friends</a></li>
+                        
+                        <li><a href="#">It helps SEO</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/lin-nuo-48-74">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/1847298293">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/lishuna">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; freefish 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://lishuna.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '767289567b5b2efe3a61a62b2b0f333d';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/img/author.jpg">
+</body>
+
+</html>
